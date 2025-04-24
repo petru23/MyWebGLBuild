@@ -18,55 +18,76 @@ body { padding: 0; margin: 0 }
 /* ————— New AR-Start Button Styles ————— */
 
 
-/* overlay covers full screen and stacks children from top → bottom */
+/* ————— CTA DIV (overlay) ————— */
 #startARDiv.ctaDiv {
     position: absolute;
-    inset: 0;                  /* top:0; right:0; bottom:0; left:0; */
+    inset: 0;                   /* fill entire viewport */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     background: #02405E;
-    padding: 16px 0;           /* only horizontal padding if you need it */
+    padding: 0 16px;            /* only horizontal padding */
     box-sizing: border-box;
     z-index: 99;
   }
   
-  /* full-width banners, no margins */
+  /* ————— Full-width banners ————— */
   .banner {
     width: 100%;
     height: auto;
     object-fit: cover;
     flex-shrink: 0;
-    margin: 0;
+    margin: 0;                  /* no auto-margins */
   }
   
-  /* just in case you want extra spacing around the logo/text/button */
+  /* top and bottom banners touch edges */
+  .top-banner  { margin-top:    0; }
+  .bottom-banner { margin-bottom: 0; }
+  
+  /* ————— Limit banner height so desktop images don’t overwhelm ————— */
+  @media (min-width: 601px) {
+    .banner {
+      max-height: 150px;        /* caps banner height on desktop */
+    }
+  }
+  
+  /* on mobile, let them be a bit taller relative to screen */
+  @media (max-width: 600px) {
+    .banner {
+      max-height: 20vh;         /* 20% of viewport height */
+    }
+  }
+  
+  /* ————— CoLab logo ————— */
   .logo {
     width: 50vw;
     max-width: 240px;
-    margin-top: 16px;
-    margin-bottom: 16px;
+    height: auto;
+    margin: 16px 0;             /* vertical breathing room */
   }
   
+  /* ————— Instruction text ————— */
   .cta-text {
     color: white;
     font-size: 1.2rem;
     text-align: center;
     max-width: 80vw;
     line-height: 1.4;
-    margin: 0 16px 16px;   /* horizontal & bottom spacing */
+    margin: 0 0 16px;           /* bottom gap before button */
   }
   
+  /* ————— Allow-Camera button ————— */
   .start-ar-btn {
     border: none;
     background: none;
     padding: 0;
     cursor: pointer;
-    width: 400px;          /* adjust for desktop */
+    width: 400px;
     max-width: 80vw;
+    height: auto;
     flex-shrink: 0;
-    margin-bottom: 16px;   /* spacing before bottom banner */
+    margin-bottom: 16px;        /* spacing before bottom banner */
   }
   .start-ar-btn img {
     width: 100%;
@@ -77,10 +98,18 @@ body { padding: 0; margin: 0 }
     opacity: 0.85;
   }
   
-  /* mobile tweaks */
+  /* ————— Responsive tweaks ————— */
   @media (max-width: 600px) {
-    .logo { width: 60vw; margin: 8px 0; }
-    .start-ar-btn { width: 200px; margin-bottom: 8px; }
-    .cta-text { font-size: 1rem; max-width: 90vw; margin: 0 12px 12px; }
+    .logo {
+      width: 60vw;
+    }
+    .start-ar-btn {
+      width: 200px;
+      margin-bottom: 8px;
+    }
+    .cta-text {
+      font-size: 1rem;
+      max-width: 90vw;
+    }
   }
   
