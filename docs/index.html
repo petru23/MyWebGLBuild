@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content='width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes'>
-    <title>Unity WebGL Player | Test_Equity_AR</title>
+    <title>Unity WebGL Player | Equity_AR</title>
     <link rel="stylesheet" href="TemplateData/style.css">
 
     <style>
@@ -37,10 +37,43 @@
     <video id="webcam-video" muted autoplay playsinline style="width:1px;position:absolute"></video>
     <canvas id="video-canvas" style="width:100%; height:100%; object-fit:cover; position:absolute"></canvas>
     <div id="startARDiv" class="ctaDiv">
-        <select id="chooseCamSel" style="display: none;" onchange="SelectCam()"></select>
-        <p style="text-align: center; width:60vw">This augmented reality experience requires access to your device's camera and motion sensors</p>
-        <button id="startARButton" style="display:none" onclick="StartAR()">ALLOW ACCESS</button>
-    </div>
+        <!-- top banner -->
+        <img
+          src="TemplateData/AR_Access_Top_Banner.png"
+          class="banner top-banner"
+          alt="Top Banner" />
+      
+        <!-- CoLab AR logo -->
+        <img
+          src="TemplateData/CoLab_Learn_AR_Logo_Low_Res.png"
+          class="logo"
+          alt="CoLab Learn AR Logo" />
+      
+        <!-- instruction -->
+        <p class="cta-text">
+          This augmented reality experience requires access to your device’s
+          camera and motion sensors.
+        </p>
+      
+        <!-- allow-camera button -->
+        <button
+          id="startARButton"
+          class="start-ar-btn"
+          onclick="StartAR()"
+          title="Tap to start AR">
+          <img
+            src="TemplateData/AR_Access_Allow_Button.png"
+            alt="Allow Camera" />
+        </button>
+      
+        <!-- bottom banner -->
+        <img
+          src="TemplateData/AR_Access_Bottom_Banner.png"
+          class="banner bottom-banner"
+          alt="Bottom Banner" />
+      </div>
+      
+      
     <div id="screenshotDiv" style="display: none;" class="ctaDiv">
         <div style="position:relative; background-color:white; padding:10px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.25);">
             <img id="screenshotImg" src="" alt="screenshot" style="width:80vw; height:80vh">
@@ -101,7 +134,7 @@
                     codeUrl: "Build/docs.wasm",
                     streamingAssetsUrl: "StreamingAssets",
                     companyName: "DefaultCompany",
-                    productName: "Test_Equity_AR",
+                    productName: "Equity_AR",
                     productVersion: "0.1",
                     //webglContextAttributes: { "preserveDrawingBuffer": true },
                     // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.

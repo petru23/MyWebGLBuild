@@ -14,3 +14,73 @@ body { padding: 0; margin: 0 }
 #unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
 #unity-fullscreen-button { float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
+
+/* ————— New AR-Start Button Styles ————— */
+
+
+/* overlay covers full screen and stacks children from top → bottom */
+#startARDiv.ctaDiv {
+    position: absolute;
+    inset: 0;                  /* top:0; right:0; bottom:0; left:0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: #02405E;
+    padding: 16px 0;           /* only horizontal padding if you need it */
+    box-sizing: border-box;
+    z-index: 99;
+  }
+  
+  /* full-width banners, no margins */
+  .banner {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    margin: 0;
+  }
+  
+  /* just in case you want extra spacing around the logo/text/button */
+  .logo {
+    width: 50vw;
+    max-width: 240px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .cta-text {
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 80vw;
+    line-height: 1.4;
+    margin: 0 16px 16px;   /* horizontal & bottom spacing */
+  }
+  
+  .start-ar-btn {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    width: 400px;          /* adjust for desktop */
+    max-width: 80vw;
+    flex-shrink: 0;
+    margin-bottom: 16px;   /* spacing before bottom banner */
+  }
+  .start-ar-btn img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .start-ar-btn:hover img {
+    opacity: 0.85;
+  }
+  
+  /* mobile tweaks */
+  @media (max-width: 600px) {
+    .logo { width: 60vw; margin: 8px 0; }
+    .start-ar-btn { width: 200px; margin-bottom: 8px; }
+    .cta-text { font-size: 1rem; max-width: 90vw; margin: 0 12px 12px; }
+  }
+  
